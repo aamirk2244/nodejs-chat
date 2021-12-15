@@ -1,41 +1,40 @@
-const User = require('../models/User');
-const bcrypt = require('bcrypt');
+// const User = require('../models/User');
 
-module.exports = {
+// module.exports = {
 
-  async store(req, res) {
-    const { username } = req.body;
+//   async store(req, res) {
+//     const { username } = req.body;
 
-    const user = await User.create({ username });
+//     const user = await User.create({ username });
 
-    return res.json(user);
-  },
+//     return res.json(user);
+//   },
 
-  async index(req, res) {
-    const users = await User.findAll();
+//   async index(req, res) {
+//     const users = await User.findAll();
 
-    return res.json(users);
-  },
+//     return res.json(users);
+//   },
 
-  async findById(req, res) {
-    const { id } = req.params;
-    const user = await User.findAll({
-      where: {
-        id: id
-      }
-   } );
+//   async findById(req, res) {
+//     const { id } = req.params;
+//     const user = await User.findAll({
+//       where: {
+//         id: id
+//       }
+//    } );
 
-    return res.json(user);
-  },
+//     return res.json(user);
+//   },
 
-  async delete(req, res) {
-    const { id } = req.params;
-    const user = await User.destroy({
-      where: {
-        id: id
-      }
-   } );
+//   async delete(req, res) {
+//     const { id } = req.params;
+//     const user = await User.destroy({
+//       where: {
+//         id: id
+//       }
+//    } );
 
-    return res.json(user);
-  },
-};
+//     return res.json(user);
+//   },
+// };

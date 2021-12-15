@@ -1,20 +1,8 @@
-const User = require('../models/User');
 const Message = require('../../models/Message');
 
 module.exports = {
-  async index (req, res) {
-    const { user_id } = req.params;
-
-    const user = await User.findByPk(user_id, {
-      include: { association: 'messages' }
-    });
-
-    return res.json(user.messages);
-  },
-
   async store(req, res) {
-    const { user_id } = req.params;
-    const { message } = req.body;
+    const { username, message } = req.body;
 
     const user = await User.findByPk(user_id);
 
@@ -22,8 +10,13 @@ module.exports = {
       return res.status(400).json({ error: 'User not found' });
     }
 
-    const message = await Message.create({ message, user_id });
+    const message = await Message.create({ username, message });
 
     return res.json(message);
-  }
+  },
+  async index(req, res) {
+    const message = await Message.findAll();
+
+    return res.json(messages);
+  },
 };
