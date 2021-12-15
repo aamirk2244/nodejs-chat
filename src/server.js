@@ -1,12 +1,12 @@
 const express = require('express');
-// const routes = require('./routes');
+const routes = require('./routes');
 
-// require('./database');
+require('./database');
 
 const app = express();
 app.use(express.json());
 
-// app.use(routes);
+app.use(routes);
 
 app.listen(3333, () => {
   console.log('Server running on port 3333...');
